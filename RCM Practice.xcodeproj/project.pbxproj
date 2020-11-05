@@ -13,6 +13,8 @@
 		E7387E2A25363A4600338304 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7387E2925363A4600338304 /* Preview Assets.xcassets */; };
 		E7387E3525363A4600338304 /* RCM_PracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7387E3425363A4600338304 /* RCM_PracticeTests.swift */; };
 		E7387E4025363A4600338304 /* RCM_PracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7387E3F25363A4600338304 /* RCM_PracticeUITests.swift */; };
+		E74E811825478A510028E5EE /* IntervalPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E811725478A510028E5EE /* IntervalPlayer.swift */; };
+		E74E8129254796170028E5EE /* FluidR3_GM.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = E74E8128254796170028E5EE /* FluidR3_GM.sf2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		E7387E3B25363A4600338304 /* RCM PracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RCM PracticeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7387E3F25363A4600338304 /* RCM_PracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCM_PracticeUITests.swift; sourceTree = "<group>"; };
 		E7387E4125363A4600338304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E74E811725478A510028E5EE /* IntervalPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPlayer.swift; sourceTree = "<group>"; };
+		E74E8128254796170028E5EE /* FluidR3_GM.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = FluidR3_GM.sf2; path = Assets/FluidR3_GM.sf2; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +99,13 @@
 		E7387E2125363A4500338304 /* RCM Practice */ = {
 			isa = PBXGroup;
 			children = (
+				E74E8128254796170028E5EE /* FluidR3_GM.sf2 */,
 				E7387E2225363A4500338304 /* RCM_PracticeApp.swift */,
 				E7387E2425363A4500338304 /* ContentView.swift */,
 				E7387E2625363A4600338304 /* Assets.xcassets */,
 				E7387E2B25363A4600338304 /* Info.plist */,
 				E7387E2825363A4600338304 /* Preview Content */,
+				E74E811725478A510028E5EE /* IntervalPlayer.swift */,
 			);
 			path = "RCM Practice";
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 			files = (
 				E7387E2A25363A4600338304 /* Preview Assets.xcassets in Resources */,
 				E7387E2725363A4600338304 /* Assets.xcassets in Resources */,
+				E74E8129254796170028E5EE /* FluidR3_GM.sf2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 			files = (
 				E7387E2525363A4500338304 /* ContentView.swift in Sources */,
 				E7387E2325363A4500338304 /* RCM_PracticeApp.swift in Sources */,
+				E74E811825478A510028E5EE /* IntervalPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +427,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RCM Practice/Preview Content\"";
+				DEVELOPMENT_TEAM = STPJMLUF7J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "RCM Practice/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -440,6 +449,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RCM Practice/Preview Content\"";
+				DEVELOPMENT_TEAM = STPJMLUF7J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "RCM Practice/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
