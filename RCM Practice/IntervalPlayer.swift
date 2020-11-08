@@ -23,7 +23,7 @@ let INTERVAL_MIDI_TRACK_METADATA: [UInt8] = [
     0x04, 0x04, 0x18, 0x08, // Time signature is 4/4, and 0x18 MIDI clocks in a metronome clock
     0x00, 0xFF, 0x51, 0x03, // Specify the tempo of the track.
     0x08, 0x7a, 0x23, // 1,000,000 microseconds per quarter note. Because it is in 4/4, this means 60 bpm.
-    0x00, 0xc0, 0x4f, // Set MIDI instrument to 79 (Flute)
+    0x00, 0xc0, 0x01, // Set MIDI instrument to 79 (Flute)
     0x00, 0xb0, 0x07, 0x20, // Main volume
 ]
 
@@ -43,13 +43,13 @@ struct IntervalPlayer {
         self.interval = interval
         let intervalNote = root + interval
         let sequence: [UInt8] = INTERVAL_MIDI_HEADER + INTERVAL_MIDI_TRACK_METADATA + [
-            0x00, 0x90, root, 0x40, // Play the root at beat 1.
+            0x00, 0x90, root, 0x60, // Play the root at beat 1.
             0x01, 0x80, root, 0x00, // Stop playing the root at beat 2.
-            0x00, 0x90, intervalNote, 0x40, // Play the interval at beat 2.
+            0x00, 0x90, intervalNote, 0x60, // Play the interval at beat 2.
             0x01, 0x80, intervalNote, 0x00, // Stop playing the interval at beat 3.
-            0x01, 0x90, intervalNote, 0x40, // Play the interval at beat 4.
+            0x01, 0x90, intervalNote, 0x60, // Play the interval at beat 4.
             0x01, 0x80, intervalNote, 0x00, // Stop playing the interval at beat 5.
-            0x00, 0x90, root, 0x40, // Play the root at beat 5.
+            0x00, 0x90, root, 0x60, // Play the root at beat 5.
             0x01, 0x80, root, 0x00, // Stop playing the root at beat 6.
         ] + END_OF_TRACK_BYTES
         let data = Data.init(sequence)
@@ -59,9 +59,7 @@ struct IntervalPlayer {
         }
         do {
             self.midiPlayer = try AVMIDIPlayer.init(data: data, soundBankURL: bankURL)
-            print("created midi player with sound bank url \(bankURL)")
             self.midiPlayer!.prepareToPlay()
-            print("PREPARES TO PLAY")
         } catch let error as NSError {
             print("Error \(error.localizedDescription)")
         }
@@ -69,10 +67,7 @@ struct IntervalPlayer {
     func playInterval() {
         if !self.midiPlayer!.isPlaying {
             self.midiPlayer!.currentPosition = 0
-            self.midiPlayer!.play({
-                print("FINISHED")
-            })
-            print("PLAYS?")
+            self.midiPlayer!.play()
         }
     }
 }
