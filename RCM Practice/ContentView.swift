@@ -17,10 +17,10 @@ struct ContentView: View {
             VStack {
                 Text(MenuMessages.GRADE_ONE)
                 HStack {
-                    NavigationLink(destination: Grade1IntervalExercise()) {
+                    NavigationLink(destination: ExerciseView<Grade1IntervalExerciseMessages, IntervalPlayer>()) {
                         Text(MenuMessages.GRADE_ONE_INTERVAL_EXERCISE)
                     }
-                    NavigationLink(destination: Grade1TriadExercise()) {
+                    NavigationLink(destination: ExerciseView<Grade1TriadExerciseMessages, ChordPlayer>()) {
                         Text(MenuMessages.GRADE_ONE_TRIAD_EXERCISE)
                     }
                 }

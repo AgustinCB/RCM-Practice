@@ -2,8 +2,6 @@
 //  ChordPlayer.swift
 //  RCM Practice
 //
-//  Created by Agustin Chiappe Berrini on 2020-11-10.
-//
 
 import AVFoundation
 import Foundation
@@ -18,15 +16,47 @@ struct Chord {
     let chordNotes: [UInt8]!
 }
 
-struct ChordPlayer {
-    var midiPlayer: AVMIDIPlayer?
+fileprivate func generateRandomTriad() -> Chord {
+    let root = UInt8.random(in: 60...71)
+    let quality = ChordQuality.allCases.randomElement()!
+    let notes = [root, root + quality.rawValue, root + 7]
+    return Chord.init(chordQuality: quality, chordNotes: notes)
+}
+
+struct ChordPlayer: ExercisePlayer {
+    typealias G = ChordQuality
+    
+    var midiPlayer: MIDIPlayer! = MIDIPlayer()
     var chord: Chord!
     
-    init(chord: Chord) {
-        self.setChord(chord: chord)
+    init() {
+        self.randomReset()
     }
     
-    mutating func setChord(chord: Chord) {
+    func checkGuess(_ guess: G) -> Bool {
+        self.chord.chordQuality == guess
+    }
+    
+    static func firstGuess() -> G {
+        ChordQuality.Minor
+    }
+    
+    static func secondGuess() -> G {
+        ChordQuality.Major
+    }
+    
+    mutating func randomReset() {
+        let root = UInt8.random(in: 60...71)
+        let quality = ChordQuality.allCases.randomElement()!
+        let notes = [root, root + quality.rawValue, root + 7]
+        self.setChord(Chord.init(chordQuality: quality, chordNotes: notes))
+    }
+    func play() {
+        print("PREV")
+        self.midiPlayer.play()
+    }
+    
+    fileprivate mutating func setChord(_ chord: Chord) {
         self.chord = chord
         var chordEvents: [UInt8] = []
         
@@ -60,27 +90,6 @@ struct ChordPlayer {
         }
         chordEvents += chordOnEvents + chordOffEvents
         
-        
-        let sequence: [UInt8] = CommonMIDIHeaders.INTERVAL_MIDI_HEADER + CommonMIDIHeaders.INTERVAL_MIDI_TRACK_METADATA + chordEvents + CommonMIDIHeaders.END_OF_TRACK_BYTES
-        let data = Data.init(sequence)
-        
-        guard let bankURL = Bundle.main.url(forResource: "FluidR3_GM", withExtension: "sf2") else {
-            fatalError("soundbank file not found.")
-        }
-        do {
-            self.midiPlayer = try AVMIDIPlayer.init(data: data, soundBankURL: bankURL)
-            self.midiPlayer!.prepareToPlay()
-        } catch let error as NSError {
-            print("Error \(error.localizedDescription)")
-        }
-    }
-    
-    func playChord() {
-        if !self.midiPlayer!.isPlaying {
-            self.midiPlayer!.currentPosition = 0
-            self.midiPlayer!.play({
-                self.midiPlayer!.stop()
-            })
-        }
+        self.midiPlayer.setSequence(chordEvents)
     }
 }

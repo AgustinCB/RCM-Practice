@@ -20,6 +20,7 @@
 		E7677146255B743200094AC7 /* ChordPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7677145255B743200094AC7 /* ChordPlayer.swift */; };
 		E7B5BB5725589EEC00735F72 /* FluidR3_GM.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = E74E8128254796170028E5EE /* FluidR3_GM.sf2 */; };
 		E7E66458255DF01900906A86 /* MIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E66457255DF01900906A86 /* MIDIPlayer.swift */; };
+		E7E66466255DFA3900906A86 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E66465255DFA3900906A86 /* ExerciseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		E7677140255B73E500094AC7 /* CommonMIDIHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMIDIHeaders.swift; sourceTree = "<group>"; };
 		E7677145255B743200094AC7 /* ChordPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordPlayer.swift; sourceTree = "<group>"; };
 		E7E66457255DF01900906A86 /* MIDIPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIPlayer.swift; sourceTree = "<group>"; };
+		E7E66465255DFA3900906A86 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				E7677140255B73E500094AC7 /* CommonMIDIHeaders.swift */,
 				E7677145255B743200094AC7 /* ChordPlayer.swift */,
 				E7E66457255DF01900906A86 /* MIDIPlayer.swift */,
+				E7E66465255DFA3900906A86 /* ExerciseView.swift */,
 			);
 			path = "RCM Practice";
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				E7677137255B6F6800094AC7 /* Grade1IntervalExercise.swift in Sources */,
 				E7387E2525363A4500338304 /* ContentView.swift in Sources */,
 				E7677146255B743200094AC7 /* ChordPlayer.swift in Sources */,
+				E7E66466255DFA3900906A86 /* ExerciseView.swift in Sources */,
 				E7E66458255DF01900906A86 /* MIDIPlayer.swift in Sources */,
 				E7677141255B73E500094AC7 /* CommonMIDIHeaders.swift in Sources */,
 				E767713C255B725E00094AC7 /* Grade1TriadExercise.swift in Sources */,

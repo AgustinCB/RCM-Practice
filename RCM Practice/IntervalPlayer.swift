@@ -2,26 +2,53 @@
 //  IntervalPlayer.swift
 //  RCM Practice
 //
-//  Created by Agustin Chiappe Berrini on 2020-10-26.
-//
 
 import AVFoundation
 import Foundation
 
-struct IntervalPlayer {
-    var midiPlayer: AVMIDIPlayer?
+enum Note: UInt8, CaseIterable {
+    case MajorThird = 4
+    case MinorThird = 3
+}
+
+struct IntervalPlayer: ExercisePlayer {
+    typealias G = Note
+    
+    var midiPlayer: MIDIPlayer! = MIDIPlayer()
     var root: UInt8!
     var interval: UInt8!
     
-    init(root: UInt8, interval: UInt8) {
+    init() {
+        self.randomReset()
+    }
+    
+    func checkGuess(_ guess: G) -> Bool {
+        interval == guess.rawValue
+    }
+    
+    mutating func randomReset() {
+        let root = UInt8.random(in: 60...71)
+        let interval = Note.allCases.randomElement()!.rawValue
         self.setInterval(root: root, interval: interval)
+    }
+    
+    func play() {
+        self.midiPlayer.play()
+    }
+    
+    static func firstGuess() -> G {
+        Note.MinorThird
+    }
+    
+    static func secondGuess() -> G {
+        Note.MajorThird
     }
     
     mutating func setInterval(root: UInt8, interval: UInt8) {
         self.root = root
         self.interval = interval
         let intervalNote = root + interval
-        let sequence: [UInt8] = CommonMIDIHeaders.INTERVAL_MIDI_HEADER + CommonMIDIHeaders.INTERVAL_MIDI_TRACK_METADATA + [
+        let sequence: [UInt8] = [
             0x00, 0x90, root, 0x60, // Play the root at beat 1.
             0x01, 0x80, root, 0x00, // Stop playing the root at beat 2.
             0x00, 0x90, intervalNote, 0x60, // Play the interval at beat 2.
@@ -30,23 +57,7 @@ struct IntervalPlayer {
             0x01, 0x80, intervalNote, 0x00, // Stop playing the interval at beat 5.
             0x00, 0x90, root, 0x60, // Play the root at beat 5.
             0x01, 0x80, root, 0x00, // Stop playing the root at beat 6.
-        ] + CommonMIDIHeaders.END_OF_TRACK_BYTES
-        let data = Data.init(sequence)
-        
-        guard let bankURL = Bundle.main.url(forResource: "FluidR3_GM", withExtension: "sf2") else {
-            fatalError("soundbank file not found.")
-        }
-        do {
-            self.midiPlayer = try AVMIDIPlayer.init(data: data, soundBankURL: bankURL)
-            self.midiPlayer!.prepareToPlay()
-        } catch let error as NSError {
-            print("Error \(error.localizedDescription)")
-        }
-    }
-    func playInterval() {
-        if !self.midiPlayer!.isPlaying {
-            self.midiPlayer!.currentPosition = 0
-            self.midiPlayer!.play()
-        }
+        ]
+        self.midiPlayer.setSequence(sequence)
     }
 }
