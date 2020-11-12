@@ -14,7 +14,12 @@
 		E7387E3525363A4600338304 /* RCM_PracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7387E3425363A4600338304 /* RCM_PracticeTests.swift */; };
 		E7387E4025363A4600338304 /* RCM_PracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7387E3F25363A4600338304 /* RCM_PracticeUITests.swift */; };
 		E74E811825478A510028E5EE /* IntervalPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E811725478A510028E5EE /* IntervalPlayer.swift */; };
-		E74E8129254796170028E5EE /* FluidR3_GM.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = E74E8128254796170028E5EE /* FluidR3_GM.sf2 */; };
+		E7677137255B6F6800094AC7 /* Grade1IntervalExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7677136255B6F6800094AC7 /* Grade1IntervalExercise.swift */; };
+		E767713C255B725E00094AC7 /* Grade1TriadExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E767713B255B725E00094AC7 /* Grade1TriadExercise.swift */; };
+		E7677141255B73E500094AC7 /* CommonMIDIHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7677140255B73E500094AC7 /* CommonMIDIHeaders.swift */; };
+		E7677146255B743200094AC7 /* ChordPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7677145255B743200094AC7 /* ChordPlayer.swift */; };
+		E7B5BB5725589EEC00735F72 /* FluidR3_GM.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = E74E8128254796170028E5EE /* FluidR3_GM.sf2 */; };
+		E7E66458255DF01900906A86 /* MIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E66457255DF01900906A86 /* MIDIPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		E7387E4125363A4600338304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E74E811725478A510028E5EE /* IntervalPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPlayer.swift; sourceTree = "<group>"; };
 		E74E8128254796170028E5EE /* FluidR3_GM.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = FluidR3_GM.sf2; path = Assets/FluidR3_GM.sf2; sourceTree = "<group>"; };
+		E7677136255B6F6800094AC7 /* Grade1IntervalExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade1IntervalExercise.swift; sourceTree = "<group>"; };
+		E767713B255B725E00094AC7 /* Grade1TriadExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade1TriadExercise.swift; sourceTree = "<group>"; };
+		E7677140255B73E500094AC7 /* CommonMIDIHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMIDIHeaders.swift; sourceTree = "<group>"; };
+		E7677145255B743200094AC7 /* ChordPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordPlayer.swift; sourceTree = "<group>"; };
+		E7E66457255DF01900906A86 /* MIDIPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,11 @@
 				E7387E2B25363A4600338304 /* Info.plist */,
 				E7387E2825363A4600338304 /* Preview Content */,
 				E74E811725478A510028E5EE /* IntervalPlayer.swift */,
+				E7677136255B6F6800094AC7 /* Grade1IntervalExercise.swift */,
+				E767713B255B725E00094AC7 /* Grade1TriadExercise.swift */,
+				E7677140255B73E500094AC7 /* CommonMIDIHeaders.swift */,
+				E7677145255B743200094AC7 /* ChordPlayer.swift */,
+				E7E66457255DF01900906A86 /* MIDIPlayer.swift */,
 			);
 			path = "RCM Practice";
 			sourceTree = "<group>";
@@ -239,9 +254,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B5BB5725589EEC00735F72 /* FluidR3_GM.sf2 in Resources */,
 				E7387E2A25363A4600338304 /* Preview Assets.xcassets in Resources */,
 				E7387E2725363A4600338304 /* Assets.xcassets in Resources */,
-				E74E8129254796170028E5EE /* FluidR3_GM.sf2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +281,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7677137255B6F6800094AC7 /* Grade1IntervalExercise.swift in Sources */,
 				E7387E2525363A4500338304 /* ContentView.swift in Sources */,
+				E7677146255B743200094AC7 /* ChordPlayer.swift in Sources */,
+				E7E66458255DF01900906A86 /* MIDIPlayer.swift in Sources */,
+				E7677141255B73E500094AC7 /* CommonMIDIHeaders.swift in Sources */,
+				E767713C255B725E00094AC7 /* Grade1TriadExercise.swift in Sources */,
 				E7387E2325363A4500338304 /* RCM_PracticeApp.swift in Sources */,
 				E74E811825478A510028E5EE /* IntervalPlayer.swift in Sources */,
 			);
