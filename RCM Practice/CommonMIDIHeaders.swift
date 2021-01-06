@@ -17,8 +17,7 @@ struct CommonMIDIHeaders {
         0x4D, 0x54, 0x72, 0x6b, // Track header: MThd
     ]
 
-    static let INTERVAL_MIDI_TRACK_METADATA: [UInt8] = [
-        0x00, 0x00, 0x00, 0x3A, // Track length: 4 bytes * 8 events + 4 bytes for end of header + 22 for the headers = 58
+    fileprivate static let INTERVAL_MIDI_TRACK_METADATA: [UInt8] = [
         0x00, 0xFF, 0x58, 0x04, // Specify time signature, and clarify that the next four bytes will contain that information
         0x04, 0x04, 0x18, 0x08, // Time signature is 4/4, and 0x18 MIDI clocks in a metronome clock
         0x00, 0xFF, 0x51, 0x03, // Specify the tempo of the track.
@@ -28,4 +27,8 @@ struct CommonMIDIHeaders {
     ]
 
     static let END_OF_TRACK_BYTES: [UInt8] = [0x00,0xff,0x2f,0x00]
+    
+    static func getIntervalMidiTrackMetatada(_ trackSize: UInt32) -> [UInt8] {
+        withUnsafeBytes(of: (trackSize + 4 /* end of header */ + 22 /* headers */).bigEndian, Array.init) + INTERVAL_MIDI_TRACK_METADATA
+    }
 }

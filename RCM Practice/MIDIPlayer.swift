@@ -10,9 +10,8 @@ struct MIDIPlayer {
     var midiPlayer: AVMIDIPlayer?
     
     mutating func setSequence(_ noteEvents: [UInt8]) {
-        let sequence: [UInt8] = CommonMIDIHeaders.INTERVAL_MIDI_HEADER + CommonMIDIHeaders.INTERVAL_MIDI_TRACK_METADATA + noteEvents + CommonMIDIHeaders.END_OF_TRACK_BYTES
+        let sequence: [UInt8] = CommonMIDIHeaders.INTERVAL_MIDI_HEADER + CommonMIDIHeaders.getIntervalMidiTrackMetatada(UInt32(noteEvents.count)) + noteEvents + CommonMIDIHeaders.END_OF_TRACK_BYTES
         let data = Data.init(sequence)
-        print("SEETING EVENTS ", noteEvents)
         
         guard let bankURL = Bundle.main.url(forResource: "FluidR3_GM", withExtension: "sf2") else {
             fatalError("soundbank file not found.")
@@ -20,19 +19,15 @@ struct MIDIPlayer {
         do {
             self.midiPlayer = try AVMIDIPlayer.init(data: data, soundBankURL: bankURL)
             self.midiPlayer!.prepareToPlay()
-            print("FINISHED PREPARING")
         } catch let error as NSError {
             print("Error \(error.localizedDescription)")
         }
     }
 
     func play() {
-        print("ABOUT TO PLAY")
         if !self.midiPlayer!.isPlaying {
-            print("IT IS NOT PLAYING")
             self.midiPlayer!.currentPosition = 0
             self.midiPlayer!.play({
-                print("FINISHED")
                 self.midiPlayer!.stop()
             })
         }

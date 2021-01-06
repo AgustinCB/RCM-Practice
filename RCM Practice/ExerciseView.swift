@@ -2,8 +2,6 @@
 //  ExerciseView.swift
 //  RCM Practice
 //
-//  Created by Agustin Chiappe Berrini on 2020-11-12.
-//
 
 import SwiftUI
 
@@ -16,10 +14,8 @@ protocol ExerciseMessages {
     static var WELLCOME_MESSAGE: String { get }
     static var PLAY_MESSAGE: String { get }
     static var PLAYING_MESSAGE: String { get }
-    static var FIRST_GUESS: String { get }
-    static var SECOND_GUESS: String { get }
-    static var GUESSED_FIRST: String { get }
-    static var GUESSED_SECOND: String { get }
+    static var GUESSES: [String] { get }
+    static var GUESSED_MESSAGES: [String] { get }
 }
 
 protocol ExercisePlayer	{
@@ -28,8 +24,7 @@ protocol ExercisePlayer	{
     func checkGuess(_ guess: G) -> Bool
     mutating func randomReset()
     func play()
-    static func firstGuess() -> G
-    static func secondGuess() -> G
+    func guess(_ guessIndex: Int) -> G
 }
 
 struct ExerciseView<M: ExerciseMessages, P: ExercisePlayer>: View {
@@ -39,44 +34,32 @@ struct ExerciseView<M: ExerciseMessages, P: ExercisePlayer>: View {
     
     fileprivate func processGuess(quality: P.G) {
         var result: String = ""
-        if self.player.checkGuess(quality) {
+        if self.player!.checkGuess(quality) {
             self.score += 1
             result = GeneralMessages.CORRECT_GUESS
         } else {
             result = GeneralMessages.INCORRECT_GUESS
         }
         self.message = result
-        self.player.randomReset()
+        self.player!.randomReset()
     }
     
     var body: some View {
-        VStack {
-            Text("\(self.message)")
-                .padding()
-            Button(M.PLAY_MESSAGE, action: {
+        List {
+            Section(header: Button(M.PLAY_MESSAGE, action: {
                 self.message = M.PLAYING_MESSAGE
-                self.player.play()
-            })
-            .padding(.bottom)
-            HStack {
-                Button(M.FIRST_GUESS, action: {
-                    self.message = M.GUESSED_FIRST;
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                        processGuess(quality: P.firstGuess())
-                    }
-                })
-                .padding(.leading)
-                Button(M.SECOND_GUESS, action: {
-                    self.message = M.GUESSED_SECOND
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                        processGuess(quality: P.secondGuess())
-                    }
-                })
-                .padding(.trailing)
+                self.player!.play()
+            }), footer: Text(self.message)) {
+                ForEach(Array(zip(M.GUESSES.indices, M.GUESSES)), id: \.0) { guessIndex, guessMessage in
+                    Button(guessMessage, action: {
+                        self.message = M.GUESSED_MESSAGES[guessIndex]
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                            self.processGuess(quality: self.player!.guess(guessIndex))
+                        }
+                    })
+                }
             }
-            Text("Your score is \(self.score)")
-                .padding(.top)
-        }
+        }.navigationBarTitle(M.WELLCOME_MESSAGE)
     }
 }
 

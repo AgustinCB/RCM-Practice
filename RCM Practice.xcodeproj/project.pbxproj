@@ -3,10 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E70DD7532577077500B5C0BA /* Grade3IntervalExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DD7522577077500B5C0BA /* Grade3IntervalExercise.swift */; };
+		E70DD7582577088300B5C0BA /* ChordAndIntervalPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DD7572577088300B5C0BA /* ChordAndIntervalPlayer.swift */; };
+		E70DD75D25770AB400B5C0BA /* Grade3NoteInTriadExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DD75C25770AB400B5C0BA /* Grade3NoteInTriadExercise.swift */; };
+		E70DD76225770E7100B5C0BA /* Grade4IntervalExercseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DD76125770E7100B5C0BA /* Grade4IntervalExercseMessages.swift */; };
+		E70DD76A2577124F00B5C0BA /* Grade5IntervalExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DD7692577124F00B5C0BA /* Grade5IntervalExerciseMessages.swift */; };
+		E70DD76F257717C400B5C0BA /* Grade5ChordExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DD76E257717C400B5C0BA /* Grade5ChordExercise.swift */; };
+		E71D3DC725898D2200D51231 /* Grade8IntervalExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71D3DC625898D2200D51231 /* Grade8IntervalExerciseMessages.swift */; };
+		E71D3DCC2589900100D51231 /* Grade8ProgressionExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71D3DCB2589900100D51231 /* Grade8ProgressionExerciseMessages.swift */; };
+		E71D3DD12589937A00D51231 /* Grade9ChordExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71D3DD02589937A00D51231 /* Grade9ChordExerciseMessages.swift */; };
+		E71D3DD62589959900D51231 /* RandomChordProgressionPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71D3DD52589959900D51231 /* RandomChordProgressionPlayer.swift */; };
 		E7387E2325363A4500338304 /* RCM_PracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7387E2225363A4500338304 /* RCM_PracticeApp.swift */; };
 		E7387E2525363A4500338304 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7387E2425363A4500338304 /* ContentView.swift */; };
 		E7387E2725363A4600338304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7387E2625363A4600338304 /* Assets.xcassets */; };
@@ -18,7 +28,20 @@
 		E767713C255B725E00094AC7 /* Grade1TriadExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E767713B255B725E00094AC7 /* Grade1TriadExercise.swift */; };
 		E7677141255B73E500094AC7 /* CommonMIDIHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7677140255B73E500094AC7 /* CommonMIDIHeaders.swift */; };
 		E7677146255B743200094AC7 /* ChordPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7677145255B743200094AC7 /* ChordPlayer.swift */; };
+		E78B4AAE256DE13000A6C82E /* BlockOnlyChordPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B4AAD256DE13000A6C82E /* BlockOnlyChordPlayer.swift */; };
+		E78B4AB3256DEA3500A6C82E /* Grade2IntervalExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B4AB2256DEA3500A6C82E /* Grade2IntervalExercise.swift */; };
+		E7A0A99D2592C54600E382E1 /* RandomChordProgressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0A99C2592C54600E382E1 /* RandomChordProgressionView.swift */; };
+		E7A63D89259BEE660007A094 /* Grade10IntervalExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A63D88259BEE660007A094 /* Grade10IntervalExerciseMessages.swift */; };
+		E7A63D8E259BF2800007A094 /* Grade10ChordExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A63D8D259BF2800007A094 /* Grade10ChordExerciseMessages.swift */; };
 		E7B5BB5725589EEC00735F72 /* FluidR3_GM.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = E74E8128254796170028E5EE /* FluidR3_GM.sf2 */; };
+		E7C1148B258042D60033F431 /* ChordProgressionPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C1148A258042D60033F431 /* ChordProgressionPlayer.swift */; };
+		E7C1149025804B0C0033F431 /* Grade5ProgressionExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C1148F25804B0C0033F431 /* Grade5ProgressionExercise.swift */; };
+		E7C1149525804CDC0033F431 /* Grade6IntervalExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C1149425804CDC0033F431 /* Grade6IntervalExerciseMessages.swift */; };
+		E7C1149A25804E3E0033F431 /* Grade6ChordExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C1149925804E3E0033F431 /* Grade6ChordExerciseMessages.swift */; };
+		E7C1149F258050E00033F431 /* Grade6ProgressionExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C1149E258050E00033F431 /* Grade6ProgressionExerciseMessages.swift */; };
+		E7C114A42580522E0033F431 /* Grade7IntervalExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C114A32580522E0033F431 /* Grade7IntervalExerciseMessages.swift */; };
+		E7C114A9258053160033F431 /* Grade7ChordExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C114A8258053160033F431 /* Grade7ChordExerciseMessages.swift */; };
+		E7C114AE2580554B0033F431 /* Grade7ProgressionExerciseMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C114AD2580554B0033F431 /* Grade7ProgressionExerciseMessages.swift */; };
 		E7E66458255DF01900906A86 /* MIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E66457255DF01900906A86 /* MIDIPlayer.swift */; };
 		E7E66466255DFA3900906A86 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E66465255DFA3900906A86 /* ExerciseView.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +64,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E70DD7522577077500B5C0BA /* Grade3IntervalExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade3IntervalExercise.swift; sourceTree = "<group>"; };
+		E70DD7572577088300B5C0BA /* ChordAndIntervalPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordAndIntervalPlayer.swift; sourceTree = "<group>"; };
+		E70DD75C25770AB400B5C0BA /* Grade3NoteInTriadExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade3NoteInTriadExercise.swift; sourceTree = "<group>"; };
+		E70DD76125770E7100B5C0BA /* Grade4IntervalExercseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade4IntervalExercseMessages.swift; sourceTree = "<group>"; };
+		E70DD7692577124F00B5C0BA /* Grade5IntervalExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade5IntervalExerciseMessages.swift; sourceTree = "<group>"; };
+		E70DD76E257717C400B5C0BA /* Grade5ChordExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade5ChordExercise.swift; sourceTree = "<group>"; };
+		E71D3DC625898D2200D51231 /* Grade8IntervalExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade8IntervalExerciseMessages.swift; sourceTree = "<group>"; };
+		E71D3DCB2589900100D51231 /* Grade8ProgressionExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade8ProgressionExerciseMessages.swift; sourceTree = "<group>"; };
+		E71D3DD02589937A00D51231 /* Grade9ChordExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade9ChordExerciseMessages.swift; sourceTree = "<group>"; };
+		E71D3DD52589959900D51231 /* RandomChordProgressionPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChordProgressionPlayer.swift; sourceTree = "<group>"; };
 		E7387E1F25363A4500338304 /* RCM Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RCM Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7387E2225363A4500338304 /* RCM_PracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCM_PracticeApp.swift; sourceTree = "<group>"; };
 		E7387E2425363A4500338304 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +92,20 @@
 		E767713B255B725E00094AC7 /* Grade1TriadExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade1TriadExercise.swift; sourceTree = "<group>"; };
 		E7677140255B73E500094AC7 /* CommonMIDIHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMIDIHeaders.swift; sourceTree = "<group>"; };
 		E7677145255B743200094AC7 /* ChordPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordPlayer.swift; sourceTree = "<group>"; };
+		E78B4AAD256DE13000A6C82E /* BlockOnlyChordPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockOnlyChordPlayer.swift; sourceTree = "<group>"; };
+		E78B4AB2256DEA3500A6C82E /* Grade2IntervalExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade2IntervalExercise.swift; sourceTree = "<group>"; };
+		E7A0A9922592C2A400E382E1 /* RCM Practice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RCM Practice.entitlements"; sourceTree = "<group>"; };
+		E7A0A99C2592C54600E382E1 /* RandomChordProgressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChordProgressionView.swift; sourceTree = "<group>"; };
+		E7A63D88259BEE660007A094 /* Grade10IntervalExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade10IntervalExerciseMessages.swift; sourceTree = "<group>"; };
+		E7A63D8D259BF2800007A094 /* Grade10ChordExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade10ChordExerciseMessages.swift; sourceTree = "<group>"; };
+		E7C1148A258042D60033F431 /* ChordProgressionPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordProgressionPlayer.swift; sourceTree = "<group>"; };
+		E7C1148F25804B0C0033F431 /* Grade5ProgressionExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade5ProgressionExercise.swift; sourceTree = "<group>"; };
+		E7C1149425804CDC0033F431 /* Grade6IntervalExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade6IntervalExerciseMessages.swift; sourceTree = "<group>"; };
+		E7C1149925804E3E0033F431 /* Grade6ChordExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade6ChordExerciseMessages.swift; sourceTree = "<group>"; };
+		E7C1149E258050E00033F431 /* Grade6ProgressionExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade6ProgressionExerciseMessages.swift; sourceTree = "<group>"; };
+		E7C114A32580522E0033F431 /* Grade7IntervalExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade7IntervalExerciseMessages.swift; sourceTree = "<group>"; };
+		E7C114A8258053160033F431 /* Grade7ChordExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade7ChordExerciseMessages.swift; sourceTree = "<group>"; };
+		E7C114AD2580554B0033F431 /* Grade7ProgressionExerciseMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade7ProgressionExerciseMessages.swift; sourceTree = "<group>"; };
 		E7E66457255DF01900906A86 /* MIDIPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIPlayer.swift; sourceTree = "<group>"; };
 		E7E66465255DFA3900906A86 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +158,7 @@
 		E7387E2125363A4500338304 /* RCM Practice */ = {
 			isa = PBXGroup;
 			children = (
+				E7A0A9922592C2A400E382E1 /* RCM Practice.entitlements */,
 				E74E8128254796170028E5EE /* FluidR3_GM.sf2 */,
 				E7387E2225363A4500338304 /* RCM_PracticeApp.swift */,
 				E7387E2425363A4500338304 /* ContentView.swift */,
@@ -124,6 +172,29 @@
 				E7677145255B743200094AC7 /* ChordPlayer.swift */,
 				E7E66457255DF01900906A86 /* MIDIPlayer.swift */,
 				E7E66465255DFA3900906A86 /* ExerciseView.swift */,
+				E78B4AAD256DE13000A6C82E /* BlockOnlyChordPlayer.swift */,
+				E78B4AB2256DEA3500A6C82E /* Grade2IntervalExercise.swift */,
+				E70DD7522577077500B5C0BA /* Grade3IntervalExercise.swift */,
+				E70DD7572577088300B5C0BA /* ChordAndIntervalPlayer.swift */,
+				E70DD75C25770AB400B5C0BA /* Grade3NoteInTriadExercise.swift */,
+				E70DD76125770E7100B5C0BA /* Grade4IntervalExercseMessages.swift */,
+				E70DD7692577124F00B5C0BA /* Grade5IntervalExerciseMessages.swift */,
+				E70DD76E257717C400B5C0BA /* Grade5ChordExercise.swift */,
+				E7C1148A258042D60033F431 /* ChordProgressionPlayer.swift */,
+				E7C1148F25804B0C0033F431 /* Grade5ProgressionExercise.swift */,
+				E7C1149425804CDC0033F431 /* Grade6IntervalExerciseMessages.swift */,
+				E7C1149925804E3E0033F431 /* Grade6ChordExerciseMessages.swift */,
+				E7C1149E258050E00033F431 /* Grade6ProgressionExerciseMessages.swift */,
+				E7C114A32580522E0033F431 /* Grade7IntervalExerciseMessages.swift */,
+				E7C114A8258053160033F431 /* Grade7ChordExerciseMessages.swift */,
+				E7C114AD2580554B0033F431 /* Grade7ProgressionExerciseMessages.swift */,
+				E71D3DC625898D2200D51231 /* Grade8IntervalExerciseMessages.swift */,
+				E71D3DCB2589900100D51231 /* Grade8ProgressionExerciseMessages.swift */,
+				E71D3DD02589937A00D51231 /* Grade9ChordExerciseMessages.swift */,
+				E71D3DD52589959900D51231 /* RandomChordProgressionPlayer.swift */,
+				E7A0A99C2592C54600E382E1 /* RandomChordProgressionView.swift */,
+				E7A63D88259BEE660007A094 /* Grade10IntervalExerciseMessages.swift */,
+				E7A63D8D259BF2800007A094 /* Grade10ChordExerciseMessages.swift */,
 			);
 			path = "RCM Practice";
 			sourceTree = "<group>";
@@ -233,7 +304,7 @@
 				};
 			};
 			buildConfigurationList = E7387E1A25363A4500338304 /* Build configuration list for PBXProject "RCM Practice" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -284,14 +355,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71D3DCC2589900100D51231 /* Grade8ProgressionExerciseMessages.swift in Sources */,
 				E7677137255B6F6800094AC7 /* Grade1IntervalExercise.swift in Sources */,
 				E7387E2525363A4500338304 /* ContentView.swift in Sources */,
+				E70DD76A2577124F00B5C0BA /* Grade5IntervalExerciseMessages.swift in Sources */,
 				E7677146255B743200094AC7 /* ChordPlayer.swift in Sources */,
+				E7A63D8E259BF2800007A094 /* Grade10ChordExerciseMessages.swift in Sources */,
+				E70DD75D25770AB400B5C0BA /* Grade3NoteInTriadExercise.swift in Sources */,
+				E7C1149525804CDC0033F431 /* Grade6IntervalExerciseMessages.swift in Sources */,
 				E7E66466255DFA3900906A86 /* ExerciseView.swift in Sources */,
+				E7C1149025804B0C0033F431 /* Grade5ProgressionExercise.swift in Sources */,
 				E7E66458255DF01900906A86 /* MIDIPlayer.swift in Sources */,
+				E7C1148B258042D60033F431 /* ChordProgressionPlayer.swift in Sources */,
+				E7C114A9258053160033F431 /* Grade7ChordExerciseMessages.swift in Sources */,
+				E7C1149A25804E3E0033F431 /* Grade6ChordExerciseMessages.swift in Sources */,
+				E70DD76F257717C400B5C0BA /* Grade5ChordExercise.swift in Sources */,
+				E7C1149F258050E00033F431 /* Grade6ProgressionExerciseMessages.swift in Sources */,
 				E7677141255B73E500094AC7 /* CommonMIDIHeaders.swift in Sources */,
+				E70DD7582577088300B5C0BA /* ChordAndIntervalPlayer.swift in Sources */,
 				E767713C255B725E00094AC7 /* Grade1TriadExercise.swift in Sources */,
+				E7A0A99D2592C54600E382E1 /* RandomChordProgressionView.swift in Sources */,
+				E71D3DC725898D2200D51231 /* Grade8IntervalExerciseMessages.swift in Sources */,
+				E71D3DD62589959900D51231 /* RandomChordProgressionPlayer.swift in Sources */,
+				E78B4AAE256DE13000A6C82E /* BlockOnlyChordPlayer.swift in Sources */,
+				E71D3DD12589937A00D51231 /* Grade9ChordExerciseMessages.swift in Sources */,
+				E70DD76225770E7100B5C0BA /* Grade4IntervalExercseMessages.swift in Sources */,
+				E78B4AB3256DEA3500A6C82E /* Grade2IntervalExercise.swift in Sources */,
 				E7387E2325363A4500338304 /* RCM_PracticeApp.swift in Sources */,
+				E7C114AE2580554B0033F431 /* Grade7ProgressionExerciseMessages.swift in Sources */,
+				E7C114A42580522E0033F431 /* Grade7IntervalExerciseMessages.swift in Sources */,
+				E7A63D89259BEE660007A094 /* Grade10IntervalExerciseMessages.swift in Sources */,
+				E70DD7532577077500B5C0BA /* Grade3IntervalExercise.swift in Sources */,
 				E74E811825478A510028E5EE /* IntervalPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,20 +543,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "RCM Practice/RCM Practice.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RCM Practice/Preview Content\"";
 				DEVELOPMENT_TEAM = STPJMLUF7J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "RCM Practice/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "agustincb.RCM-Practice";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -471,20 +567,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "RCM Practice/RCM Practice.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RCM Practice/Preview Content\"";
 				DEVELOPMENT_TEAM = STPJMLUF7J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "RCM Practice/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "agustincb.RCM-Practice";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
