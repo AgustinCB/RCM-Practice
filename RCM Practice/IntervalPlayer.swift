@@ -24,6 +24,33 @@ enum Note: UInt8, CaseIterable {
     case MajorNineth = 14
 }
 
+enum IntervalPlayerType : UInt8 {
+    case melodicAscendingAndDescending = 0
+    case melodicAndHarmonic = 1
+    case melodicOrHarmonic = 2
+}
+
+extension IntervalPlayerType {
+    func getIntervalPlayer(notes: [Note]) -> IntervalPlayer {
+        switch self {
+        case .melodicAscendingAndDescending:
+            return IntervalPlayer.init(possibleNotes: notes)
+        case .melodicAndHarmonic:
+            return IntervalMelodicAndHarmonicPlayer.init(possibleNotes: notes)
+        case .melodicOrHarmonic:
+            return IntervalMelodicOrHarmonicPlayer.init(possibleNotes: notes)
+        }
+    }
+    
+    func getMessages(notes: [Note], exerciseName: String) -> DynamicMessages {
+        DynamicMessages.init(notes: notes, name: exerciseName)
+    }
+    
+    func getExercise(_ notes: [Note], _ exerciseName: String) -> ExerciseView<DynamicMessages, IntervalPlayer> {
+        return ExerciseView.init(messages: self.getMessages(notes: notes, exerciseName: exerciseName), player: self.getIntervalPlayer(notes: notes))
+    }
+}
+
 extension Note {
     func toString() -> String {
         switch self {
@@ -47,6 +74,41 @@ extension Note {
             return "Octave"
         case .MajorNineth, .MinorNineth:
             return "Nineth"
+        }
+    }
+    
+    func toQualifiedString() -> String{
+        switch self {
+        case .Root:
+            return "Root"
+        case .MinorSecond:
+            return "Minor Second"
+        case .MajorSecond:
+            return "Major Second"
+        case .MinorThird:
+            return "Minor Third"
+        case .MajorThird:
+            return "Major Third"
+        case .PerfectForth:
+            return "Forth"
+        case .Tritone:
+            return "Tritone"
+        case .PerfectFifth:
+            return "Fifth"
+        case .MinorSixth:
+            return "Minor Sixth"
+        case .MajorSixth:
+            return "Major Sixth"
+        case .MinorSeventh:
+            return "Minor Seventh"
+        case .MajorSeventh:
+            return "Major Seventh"
+        case .Octave:
+            return "Octave"
+        case .MajorNineth:
+            return "Major Nineth"
+        case .MinorNineth:
+            return "Minor Nineth"
         }
     }
 }

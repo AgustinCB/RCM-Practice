@@ -5,6 +5,25 @@
 
 import SwiftUI
 
+struct ChordPicker: View {
+    var chordOptions: [AbstractChord]
+    var message: String
+    var variable: Binding<Int>
+    
+    var body: some View {
+        VStack {
+            Text(message)
+            Picker(message, selection: variable) {
+                ForEach(0 ..< chordOptions.count) {
+                    Text(chordOptions[$0].note.toString() + " " + chordOptions[$0].chordQuality.rawValue)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .frame(maxWidth: .infinity, alignment: .center)
+        }.padding(10)
+    }
+}
+
 struct RandomChordProgressionView: View {
     static let WELCOME_MESSAGE = "Guess chord progression"
     static let PLAY_MESSAGE = "Play chord progression"
@@ -29,40 +48,31 @@ struct RandomChordProgressionView: View {
     
     var body: some View {
         List {
-            Section(header: Button(RandomChordProgressionView.PLAY_MESSAGE, action: {
-                self.message = RandomChordProgressionView.PLAYING_MESSAGE
-                self.player.play()
-            }), footer: Text(self.message)) {
-                VStack {
-                    Picker("First Chord", selection: $firstChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
-                    Picker("Second Chord", selection: $secondChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
-                    Picker("Third Chord", selection: $thirdChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
-                    Picker("Fourth Chord", selection: $fourthChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
+            Section(header: createHeader(self.message)) {
+                CenteredContent {
+                    Button(RandomChordProgressionView.PLAY_MESSAGE, action: {
+                        self.message = RandomChordProgressionView.PLAYING_MESSAGE
+                        self.player.play()
+                    })
+                    .buttonStyle(ActionButtonStyle())
+                }
+                ChordPicker(chordOptions: self.player.chordOptions, message: "First Chord", variable: $firstChord)
+                ChordPicker(chordOptions: self.player.chordOptions, message: "Second Chord", variable: $secondChord)
+                ChordPicker(chordOptions: self.player.chordOptions, message: "Third Chord", variable: $thirdChord)
+                ChordPicker(chordOptions: self.player.chordOptions, message: "Fourth Chord", variable: $fourthChord)
+                CenteredContent {
                     Button("Guess", action: {
                         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                             let guess: [AbstractChord] = [player.chordOptions[firstChord], player.chordOptions[secondChord], player.chordOptions[thirdChord], player.chordOptions[fourthChord]]
                             self.processGuess(progression: guess)
                         }
                     })
+                    .buttonStyle(ActionButtonStyle(color: .blue))
                 }
             }
-        }.navigationBarTitle(RandomChordProgressionView.WELCOME_MESSAGE)
+        }
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle(RandomChordProgressionView.WELCOME_MESSAGE)
     }
 }
 
@@ -91,50 +101,38 @@ struct RandomOrCadential64ChordProgressionView: View {
     
     var body: some View {
         List {
-            Section(header: Button(RandomChordProgressionView.PLAY_MESSAGE, action: {
-                self.message = RandomChordProgressionView.PLAYING_MESSAGE
-                self.player.play()
-            }), footer: Text(self.message)) {
-                VStack {
-                    Picker("First Chord", selection: $firstChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
-                    Picker("Second Chord", selection: $secondChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
-                    Picker("Third Chord", selection: $thirdChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
-                    Picker("Fourth Chord", selection: $fourthChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
-                    Picker("Fifth Chord", selection: $fifthChord) {
-                        ForEach(0 ..< self.player.chordOptions.count) {
-                            Text(self.player.chordOptions[$0].note.toString() + " " + self.player.chordOptions[$0].chordQuality.rawValue)
-                        }
-                    }
+            Section(header: createHeader(self.message)) {
+                CenteredContent {
+                    Button(RandomChordProgressionView.PLAY_MESSAGE, action: {
+                        self.message = RandomChordProgressionView.PLAYING_MESSAGE
+                        self.player.play()
+                    })
+                    .buttonStyle(ActionButtonStyle())
+                }
+                ChordPicker(chordOptions: self.player.chordOptions, message: "First Chord", variable: $firstChord)
+                ChordPicker(chordOptions: self.player.chordOptions, message: "Second Chord", variable: $secondChord)
+                ChordPicker(chordOptions: self.player.chordOptions, message: "Third Chord", variable: $thirdChord)
+                ChordPicker(chordOptions: self.player.chordOptions, message: "Fourth Chord", variable: $fourthChord)
+                ChordPicker(chordOptions: self.player.chordOptions, message: "Fifth Chord", variable: $fifthChord)
+                HStack {
                     Button("Guess", action: {
                         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                             let guess: [AbstractChord] = [player.chordOptions[firstChord], player.chordOptions[secondChord], player.chordOptions[thirdChord], player.chordOptions[fourthChord], player.chordOptions[fifthChord]]
                             self.processGuess(progression: guess)
                         }
                     })
+                    .buttonStyle(ActionButtonStyle(color: Color.blue))
                     Button("Guess Cadential 6 4", action: {
                         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                             let guess: [AbstractChord] = RandomOrCadential64ChordProgressionPlayer.CADENTIAL_CHORD_PROGRESSION
                             self.processGuess(progression: guess)
                         }
                     })
+                    .buttonStyle(ActionButtonStyle(color: Color.blue))
                 }
             }
-        }.navigationBarTitle(RandomChordProgressionView.WELCOME_MESSAGE)
+        }
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle(RandomChordProgressionView.WELCOME_MESSAGE)
     }
 }

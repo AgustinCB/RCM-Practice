@@ -11,11 +11,37 @@ struct GeneralMessages {
 }
 
 protocol ExerciseMessages {
-    static var WELLCOME_MESSAGE: String { get }
-    static var PLAY_MESSAGE: String { get }
-    static var PLAYING_MESSAGE: String { get }
-    static var GUESSES: [String] { get }
-    static var GUESSED_MESSAGES: [String] { get }
+    var WELLCOME_MESSAGE: String { get }
+    var PLAY_MESSAGE: String { get }
+    var PLAYING_MESSAGE: String { get }
+    var GUESSES: [String] { get }
+    var GUESSED_MESSAGES: [String] { get }
+    
+    init()
+}
+
+struct DynamicMessages: ExerciseMessages {
+    var WELLCOME_MESSAGE: String
+    var PLAY_MESSAGE: String
+    var PLAYING_MESSAGE: String
+    var GUESSES: [String]
+    var GUESSED_MESSAGES: [String]
+    
+    init(){
+        WELLCOME_MESSAGE = ""
+        PLAY_MESSAGE = ""
+        PLAYING_MESSAGE = ""
+        GUESSES = []
+        GUESSED_MESSAGES = []
+    }
+    
+    init(notes: [Note], name: String) {
+        self.WELLCOME_MESSAGE = name
+        self.PLAY_MESSAGE = "Play \(name)"
+        self.PLAYING_MESSAGE = "Playing \(name)"
+        self.GUESSES = notes.map({n in "Guess \(n.toQualifiedString())"})
+        self.GUESSED_MESSAGES = notes.map({n in "Guessed \(n.toQualifiedString())"})
+    }
 }
 
 protocol ExercisePlayer	{
@@ -28,9 +54,20 @@ protocol ExercisePlayer	{
 }
 
 struct ExerciseView<M: ExerciseMessages, P: ExercisePlayer>: View {
+    var messages: M
     @State var score: Int = 0
-    @State var message: String = M.WELLCOME_MESSAGE
+    @State var message: String = ""
     @State var player: P! = P.init()
+    
+    init(messages: M) {
+        self.messages = messages
+        self.message = messages.WELLCOME_MESSAGE
+    }
+    
+    init(messages: M, player: P) {
+        self.init(messages: messages)
+        self.player = player
+    }
     
     fileprivate func processGuess(quality: P.G) {
         var result: String = ""
@@ -46,25 +83,36 @@ struct ExerciseView<M: ExerciseMessages, P: ExercisePlayer>: View {
     
     var body: some View {
         List {
-            Section(header: Button(M.PLAY_MESSAGE, action: {
-                self.message = M.PLAYING_MESSAGE
-                self.player!.play()
-            }), footer: Text(self.message)) {
-                ForEach(Array(zip(M.GUESSES.indices, M.GUESSES)), id: \.0) { guessIndex, guessMessage in
-                    Button(guessMessage, action: {
-                        self.message = M.GUESSED_MESSAGES[guessIndex]
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                            self.processGuess(quality: self.player!.guess(guessIndex))
+            Section(header: createHeader(self.message)) {
+                Group {
+                    CenteredContent {
+                        Button(messages.PLAY_MESSAGE, action: {
+                            self.message = self.messages.PLAYING_MESSAGE
+                            self.player!.play()
+                        })
+                        .buttonStyle(ActionButtonStyle())
+                    }
+                    ForEach(Array(zip(messages.GUESSES.indices, messages.GUESSES)), id: \.0) { guessIndex, guessMessage in
+                        CenteredContent {
+                            Button(guessMessage, action: {
+                                self.message = messages.GUESSED_MESSAGES[guessIndex]
+                                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                                    self.processGuess(quality: self.player!.guess(guessIndex))
+                                }
+                            })
+                            .buttonStyle(OptionButtonStyle())
                         }
-                    })
+                    }
                 }
             }
-        }.navigationBarTitle(M.WELLCOME_MESSAGE)
+        }
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle(messages.WELLCOME_MESSAGE)
     }
 }
 
 struct ExerciseView_Previews<M: ExerciseMessages, P: ExercisePlayer>: PreviewProvider {
     static var previews: some View {
-        ExerciseView<M, P>()
+        ExerciseView<M, P>(messages: M.init())
     }
 }

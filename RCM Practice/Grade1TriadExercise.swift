@@ -6,9 +6,10 @@
 import SwiftUI
 
 struct Grade1TriadExerciseMessages: ExerciseMessages {
-    static let WELLCOME_MESSAGE: String = "Guess the triad"
-    static let PLAY_MESSAGE: String = "Play Chord"
-    static let PLAYING_MESSAGE: String = "Playing the Chord..."
-    static var GUESSES: [String] = ["Guess minor triad", "Guess major triad"]
-    static var GUESSED_MESSAGES: [String] = ["Guessed Minor Chord", "Guessed Major Chord"]
+    let WELLCOME_MESSAGE: String = "Guess the triad"
+    let PLAY_MESSAGE: String = "Play Chord"
+    let PLAYING_MESSAGE: String = "Playing the Chord..."
+    let GUESSES: [String] = ["Guess minor triad", "Guess major triad"]
+    let GUESSED_MESSAGES: [String] = ["Guessed Minor Chord", "Guessed Major Chord"]
+    init(){}
 }
