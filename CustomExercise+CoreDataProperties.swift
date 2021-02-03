@@ -17,15 +17,15 @@ extension CustomExercise {
     }
 
     @NSManaged public var id: String?
-    @NSManaged public var intervalPlayerTypeId: Int16
-    @NSManaged public var noteIds: Data?
+    @NSManaged public var exercisePlayerTypeId: Int16
+    @NSManaged public var data: Data?
 
-    var intervalPlayerType: IntervalPlayerType {
+    var exercisePlayerType: ExercisePlayerType {
         set {
-            intervalPlayerTypeId = Int16(newValue.rawValue)
+            exercisePlayerTypeId = Int16(newValue.rawValue)
         }
         get {
-            IntervalPlayerType.init(rawValue: UInt8(intervalPlayerTypeId))!
+            ExercisePlayerType.init(rawValue: UInt8(exercisePlayerTypeId))!
         }
     }
     
@@ -33,15 +33,30 @@ extension CustomExercise {
         set {
             var newData = Data.init(capacity: newValue.count)
             newData.append(contentsOf: newValue.map({n in n.rawValue}))
-            noteIds = newData
+            data = newData
         }
         get {
-            Array(noteIds!).map({n in Note.init(rawValue: n)!})
+            Array(data!).map({n in Note.init(rawValue: n)!})
         }
     }
     
-    func getExercise() -> ExerciseView<DynamicMessages, IntervalPlayer> {
-        return self.intervalPlayerType.getExercise(self.notes, id!)
+    var qualities: [ChordQuality] {
+        set {
+            var newData = Data.init(capacity: newValue.count)
+            newData.append(contentsOf: newValue.map({n in n.rawValue}))
+            data = newData
+        }
+        get {
+            Array(data!).map({n in ChordQuality.init(rawValue: n)!})
+        }
+    }
+    
+    func getIntervalExercise() -> ExerciseView<DynamicMessages, IntervalPlayer> {
+        return self.exercisePlayerType.getExercise(self.notes, id!)
+    }
+    
+    func getChordExercise() -> ExerciseView<DynamicMessages, ChordPlayer> {
+        return self.exercisePlayerType.getExercise(self.qualities, id!)
     }
 }
 

@@ -42,6 +42,14 @@ struct DynamicMessages: ExerciseMessages {
         self.GUESSES = notes.map({n in "Guess \(n.toQualifiedString())"})
         self.GUESSED_MESSAGES = notes.map({n in "Guessed \(n.toQualifiedString())"})
     }
+    
+    init(qualities: [ChordQuality], name: String) {
+        self.WELLCOME_MESSAGE = name
+        self.PLAY_MESSAGE = "Play \(name)"
+        self.PLAYING_MESSAGE = "Playing \(name)"
+        self.GUESSES = qualities.map({n in "Guess \(n.toString())"})
+        self.GUESSED_MESSAGES = qualities.map({n in "Guessed \(n.toString())"})
+    }
 }
 
 protocol ExercisePlayer	{

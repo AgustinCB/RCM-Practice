@@ -24,21 +24,39 @@ enum Note: UInt8, CaseIterable {
     case MajorNineth = 14
 }
 
-enum IntervalPlayerType : UInt8 {
-    case melodicAscendingAndDescending = 0
-    case melodicAndHarmonic = 1
-    case melodicOrHarmonic = 2
+enum ExercisePlayerType : UInt8 {
+    case intervalMelodicAscendingAndDescending = 0
+    case intervalMelodicAndHarmonic = 1
+    case intervalMelodicOrHarmonic = 2
+    case chord = 3
+    case chordBlockOnly = 4
+    case chordWithPentatonic = 5
 }
 
-extension IntervalPlayerType {
+extension ExercisePlayerType {
     func getIntervalPlayer(notes: [Note]) -> IntervalPlayer {
         switch self {
-        case .melodicAscendingAndDescending:
+        case .intervalMelodicAscendingAndDescending:
             return IntervalPlayer.init(possibleNotes: notes)
-        case .melodicAndHarmonic:
+        case .intervalMelodicAndHarmonic:
             return IntervalMelodicAndHarmonicPlayer.init(possibleNotes: notes)
-        case .melodicOrHarmonic:
+        case .intervalMelodicOrHarmonic:
             return IntervalMelodicOrHarmonicPlayer.init(possibleNotes: notes)
+        default:
+            fatalError("You cannot do this!")
+        }
+    }
+    
+    func getChordPlayer(chords: [ChordQuality]) -> ChordPlayer {
+        switch self {
+        case .chord:
+            return ChordPlayer.init(chords, [Inversion.first])
+        case .chordBlockOnly:
+            return BlockOnlyChordPlayer.init(chords, [Inversion.first])
+        case .chordWithPentatonic:
+            return PentatonicAndChordPlayer.init(chords, [Inversion.first])
+        default:
+            fatalError("You cannot do this either!")
         }
     }
     
@@ -46,8 +64,25 @@ extension IntervalPlayerType {
         DynamicMessages.init(notes: notes, name: exerciseName)
     }
     
+    func getMessages(qualities: [ChordQuality], exerciseName: String) -> DynamicMessages {
+        DynamicMessages.init(qualities: qualities, name: exerciseName)
+    }
+
     func getExercise(_ notes: [Note], _ exerciseName: String) -> ExerciseView<DynamicMessages, IntervalPlayer> {
         return ExerciseView.init(messages: self.getMessages(notes: notes, exerciseName: exerciseName), player: self.getIntervalPlayer(notes: notes))
+    }
+    
+    func getExercise(_ qualities: [ChordQuality], _ exerciseName: String) -> ExerciseView<DynamicMessages, ChordPlayer> {
+        return ExerciseView.init(messages: self.getMessages(qualities: qualities, exerciseName: exerciseName), player: self.getChordPlayer(chords: qualities))
+    }
+    
+    func isChordPlayer() -> Bool {
+        switch self {
+        case .chord, .chordWithPentatonic, .chordBlockOnly:
+            return true
+        default:
+            return false
+        }
     }
 }
 

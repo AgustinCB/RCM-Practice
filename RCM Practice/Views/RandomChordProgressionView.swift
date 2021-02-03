@@ -15,7 +15,7 @@ struct ChordPicker: View {
             Text(message)
             Picker(message, selection: variable) {
                 ForEach(0 ..< chordOptions.count) {
-                    Text(chordOptions[$0].note.toString() + " " + chordOptions[$0].chordQuality.rawValue)
+                    Text(chordOptions[$0].note.toString() + " " + chordOptions[$0].chordQuality.toString())
                 }
             }
             .pickerStyle(SegmentedPickerStyle())

@@ -31,7 +31,7 @@ extension AbstractChord: Identifiable {
     typealias ID = String
     
     var id: Self.ID {
-        self.note.toString() + self.chordQuality.rawValue
+        self.note.toString() + self.chordQuality.toString()
     }
 }
 

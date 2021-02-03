@@ -72,8 +72,15 @@ struct ContentView: View {
                 Group {
                     Section(header: Text(MenuMessages.CUSTOM_EXERCISES)) {
                         ForEach(exercises) { exercise in
-                            NavigationLink(destination: exercise.getExercise()) {
-                                createNavigationButton(message: exercise.id!)
+                            if exercise.exercisePlayerType.isChordPlayer() {
+                                NavigationLink(destination:exercise.getChordExercise()) {
+                                    createNavigationButton(message: exercise.id!)
+                                }
+                            } else {
+                                NavigationLink(destination:exercise.getIntervalExercise()) {
+                                    createNavigationButton(message: exercise.id!)
+                                }
+                                
                             }
                         }
                     }

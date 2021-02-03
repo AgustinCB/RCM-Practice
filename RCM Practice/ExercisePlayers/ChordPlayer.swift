@@ -6,20 +6,34 @@
 import AVFoundation
 import Foundation
 
-enum ChordQuality: String, CaseIterable {
-    case major
-    case minor
-    case major4Notes
-    case minor4Notes
-    case dominantSeventh
-    case diminishedSeventh
-    case augmentedTriad
-    case majormajor7th
-    case minorminor7th
-    case fourSix
+enum ChordQuality: UInt8, CaseIterable {
+    case major = 0
+    case minor = 1
+    case major4Notes = 2
+    case minor4Notes = 3
+    case dominantSeventh = 4
+    case diminishedSeventh = 5
+    case augmentedTriad = 6
+    case majormajor7th = 7
+    case minorminor7th = 8
+    case fourSix = 9
 }
 
 extension ChordQuality {
+    func toString() -> String {
+        switch self {
+        case .major: return "Major Triad"
+        case .minor: return "Minor Triad"
+        case .major4Notes: return "Major 7"
+        case .minor4Notes: return "Minor 7"
+        case .dominantSeventh: return "Dominant 7"
+        case .diminishedSeventh: return "Diminished 7"
+        case .augmentedTriad: return "Augmented Triad"
+        case .majormajor7th: return "Major Major 7th Triad"
+        case .minorminor7th: return "Minor Minor 7th Triad"
+        case .fourSix: return "Four Six Triad"
+        }
+    }
     func createChordNotes(root: UInt8) -> [UInt8] {
         var notes: [UInt8]
         switch self {
