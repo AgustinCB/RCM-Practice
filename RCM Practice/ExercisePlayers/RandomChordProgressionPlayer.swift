@@ -127,7 +127,6 @@ class RandomOrCadential64ChordProgressionPlayer : RandomChordProgressionPlayer {
         let initialChord = isCadential ?
             Chord.init(chordQuality: .major, chordNotes: ChordQuality.major.createChordNotes(root: root), rootNote: root) :
             Chord.init(chordQuality: quality, chordNotes: quality.createChordNotes(root: root), rootNote: root)
-        print(isCadential, chordProgression)
         self.setChord(initialChord)
     }
 }

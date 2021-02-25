@@ -62,30 +62,31 @@ protocol ExercisePlayer	{
 }
 
 struct ExerciseView<M: ExerciseMessages, P: ExercisePlayer>: View {
-    var messages: M
+    var action: ((Bool, UInt8) -> Void)? = nil
+    var messages: M = M.init()
     @State var score: Int = 0
     @State var message: String = ""
-    @State var player: P! = P.init()
+    @State var player: P?
+    @Environment(\.managedObjectContext) private var viewContext
     
-    init(messages: M) {
-        self.messages = messages
-        self.message = messages.WELLCOME_MESSAGE
-    }
-    
-    init(messages: M, player: P) {
-        self.init(messages: messages)
-        self.player = player
-    }
-    
-    fileprivate func processGuess(quality: P.G) {
+    fileprivate func processGuess(quality: P.G, index: Int) {
         var result: String = ""
-        if self.player!.checkGuess(quality) {
+        let won = self.player!.checkGuess(quality)
+        if won {
             self.score += 1
             result = GeneralMessages.CORRECT_GUESS
         } else {
             result = GeneralMessages.INCORRECT_GUESS
         }
         self.message = result
+        if action != nil {
+            action!(won, UInt8(index))
+            do {
+                try viewContext.save()
+            } catch {
+                self.message = error.localizedDescription
+            }
+        }
         self.player!.randomReset()
     }
     
@@ -105,7 +106,7 @@ struct ExerciseView<M: ExerciseMessages, P: ExercisePlayer>: View {
                             Button(guessMessage, action: {
                                 self.message = messages.GUESSED_MESSAGES[guessIndex]
                                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                                    self.processGuess(quality: self.player!.guess(guessIndex))
+                                    self.processGuess(quality: self.player!.guess(guessIndex), index: guessIndex)
                                 }
                             })
                             .buttonStyle(OptionButtonStyle())

@@ -3,9 +3,72 @@
     <entity name="CustomExercise" representedClassName="CustomExercise" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="exercisePlayerTypeId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="historyData" optional="YES" attributeType="Binary"/>
         <attribute name="id" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="FixedExerciseHistory" representedClassName="FixedExerciseHistory" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="historyData" optional="YES" attributeType="Binary"/>
+    </entity>
+    <entity name="Grade1ChordHistory" representedClassName="Grade1ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade1IntervalHistory" representedClassName="Grade1IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade2ChordHistory" representedClassName="Grade2ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade2IntervalHistory" representedClassName="Grade2IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade3ChordHistory" representedClassName="Grade3ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade3IntervalHistory" representedClassName="Grade3IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade3NoteInChordHistory" representedClassName="Grade3NoteInChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade4ChordHistory" representedClassName="Grade4ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade4IntervalHistory" representedClassName="Grade4IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade4NoteInChordHistory" representedClassName="Grade4NoteInChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade5ChordHistory" representedClassName="Grade5ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade5IntervalHistory" representedClassName="Grade5IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade5ProgressionHistory" representedClassName="Grade5ProgressionHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade6ChordHistory" representedClassName="Grade6ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade6IntervalHistory" representedClassName="Grade6IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade6ProgressionHistory" representedClassName="Grade6ProgressionHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade7ChordHistory" representedClassName="Grade7ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade7IntervalHistory" representedClassName="Grade7IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade7ProgressionHistory" representedClassName="Grade7ProgressionHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade8ChordHistory" representedClassName="Grade8ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade8IntervalHistory" representedClassName="Grade8IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade8ProgressionHistory" representedClassName="Grade8ProgressionHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade9ChordHistory" representedClassName="Grade9ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade9IntervalHistory" representedClassName="Grade9IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade9ProgressionHistory" representedClassName="Grade9ProgressionHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade10ChordHistory" representedClassName="Grade10ChordHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade10IntervalHistory" representedClassName="Grade10IntervalHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="Grade10ProgressionHistory" representedClassName="Grade10ProgressionHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
+    <entity name="PreparatoryHistory" representedClassName="PreparatoryHistory" parentEntity="FixedExerciseHistory" syncable="YES" codeGenerationType="class"/>
     <elements>
-        <element name="CustomExercise" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CustomExercise" positionX="0" positionY="0" width="128" height="89"/>
+        <element name="PreparatoryHistory" positionX="0" positionY="27" width="128" height="29"/>
+        <element name="FixedExerciseHistory" positionX="0" positionY="27" width="128" height="44"/>
+        <element name="Grade1IntervalHistory" positionX="9" positionY="36" width="128" height="29"/>
+        <element name="Grade1ChordHistory" positionX="27" positionY="45" width="128" height="29"/>
+        <element name="Grade2IntervalHistory" positionX="45" positionY="54" width="128" height="29"/>
+        <element name="Grade2ChordHistory" positionX="63" positionY="63" width="128" height="29"/>
+        <element name="Grade3IntervalHistory" positionX="81" positionY="81" width="128" height="29"/>
+        <element name="Grade3ChordHistory" positionX="99" positionY="99" width="128" height="29"/>
+        <element name="Grade3NoteInChordHistory" positionX="54" positionY="54" width="128" height="29"/>
+        <element name="Grade4IntervalHistory" positionX="63" positionY="63" width="128" height="29"/>
+        <element name="Grade4ChordHistory" positionX="72" positionY="72" width="128" height="29"/>
+        <element name="Grade4NoteInChordHistory" positionX="81" positionY="81" width="128" height="29"/>
+        <element name="Grade5IntervalHistory" positionX="90" positionY="90" width="128" height="29"/>
+        <element name="Grade5ChordHistory" positionX="99" positionY="99" width="128" height="29"/>
+        <element name="Grade5ProgressionHistory" positionX="108" positionY="108" width="128" height="29"/>
+        <element name="Grade6IntervalHistory" positionX="54" positionY="54" width="128" height="29"/>
+        <element name="Grade6ChordHistory" positionX="63" positionY="63" width="128" height="29"/>
+        <element name="Grade6ProgressionHistory" positionX="72" positionY="72" width="128" height="29"/>
+        <element name="Grade7IntervalHistory" positionX="81" positionY="81" width="128" height="29"/>
+        <element name="Grade7ChordHistory" positionX="90" positionY="90" width="128" height="29"/>
+        <element name="Grade7ProgressionHistory" positionX="99" positionY="99" width="128" height="29"/>
+        <element name="Grade8IntervalHistory" positionX="108" positionY="108" width="128" height="29"/>
+        <element name="Grade8ChordHistory" positionX="54" positionY="54" width="128" height="29"/>
+        <element name="Grade8ProgressionHistory" positionX="63" positionY="63" width="128" height="29"/>
+        <element name="Grade9IntervalHistory" positionX="72" positionY="72" width="128" height="29"/>
+        <element name="Grade9ChordHistory" positionX="81" positionY="81" width="128" height="29"/>
+        <element name="Grade9ProgressionHistory" positionX="90" positionY="90" width="128" height="29"/>
+        <element name="Grade10IntervalHistory" positionX="99" positionY="99" width="128" height="29"/>
+        <element name="Grade10ChordHistory" positionX="108" positionY="108" width="128" height="29"/>
+        <element name="Grade10ProgressionHistory" positionX="54" positionY="54" width="128" height="29"/>
     </elements>
 </model>

@@ -68,12 +68,12 @@ extension ExercisePlayerType {
         DynamicMessages.init(qualities: qualities, name: exerciseName)
     }
 
-    func getExercise(_ notes: [Note], _ exerciseName: String) -> ExerciseView<DynamicMessages, IntervalPlayer> {
-        return ExerciseView.init(messages: self.getMessages(notes: notes, exerciseName: exerciseName), player: self.getIntervalPlayer(notes: notes))
+    func getExercise(_ notes: [Note], _ exerciseName: String, action: ((Bool, UInt8) -> Void)? = nil) -> ExerciseView<DynamicMessages, IntervalPlayer> {
+        return ExerciseView.init(action: action, messages: self.getMessages(notes: notes, exerciseName: exerciseName), player: self.getIntervalPlayer(notes: notes))
     }
     
-    func getExercise(_ qualities: [ChordQuality], _ exerciseName: String) -> ExerciseView<DynamicMessages, ChordPlayer> {
-        return ExerciseView.init(messages: self.getMessages(qualities: qualities, exerciseName: exerciseName), player: self.getChordPlayer(chords: qualities))
+    func getExercise(_ qualities: [ChordQuality], _ exerciseName: String, action: ((Bool, UInt8) -> Void)? = nil) -> ExerciseView<DynamicMessages, ChordPlayer> {
+        return ExerciseView.init(action: action, messages: self.getMessages(qualities: qualities, exerciseName: exerciseName), player: self.getChordPlayer(chords: qualities))
     }
     
     func isChordPlayer() -> Bool {
@@ -82,6 +82,17 @@ extension ExercisePlayerType {
             return true
         default:
             return false
+        }
+    }
+    
+    func toString() -> String {
+        switch self {
+        case .chord: return "Chord melodic and harmonic"
+        case .chordBlockOnly: return "Chord in block only"
+        case .chordWithPentatonic: return "Pentatonic and block"
+        case .intervalMelodicAndHarmonic: return "Play interval melodic and harmonic"
+        case .intervalMelodicAscendingAndDescending: return "Play interval melodic ascending and descending"
+        case .intervalMelodicOrHarmonic: return "Play interval melodic and harmonic"
         }
     }
 }
@@ -176,7 +187,7 @@ class IntervalPlayer: ExercisePlayer {
     }
     
     func checkGuess(_ guess: G) -> Bool {
-        interval == guess.rawValue
+        return interval == guess.rawValue
     }
     
     func randomReset() {
